@@ -38,7 +38,7 @@ const activateTimer=()=>{
     
     setTimeout(()=>{
         console.log("Activando Timer");
-        successful.textContent="";
+        message.textContent="";
     },2000);
 
 }
@@ -151,7 +151,7 @@ const cargarFormulario=(e)=>{
 
         resultados.textContent="words: "+(words*paragrhaps)+" paragrhaps: "+paragrhaps;
 
-        successful.textContent="successful";
+        message.textContent="successful";
         activateTimer();
     
     }
@@ -185,13 +185,28 @@ const getSwitch=(e)=>{
   
 }
 
+const copyPortpaper=()=>{
+
+    if(textArea.value.trim().length !== 0){
+
+        navigator.clipboard.writeText(textArea.value);
+        
+        message.textContent="Contenedor Copiado";
+        activateTimer();
+
+    }else{
+        message.textContent="Contenedor vacío";
+        activateTimer();
+    }
+}
+
 
 
 let words;
 let paragrhaps;
 
 let resultados=document.getElementById("resultados");
-let successful=document.getElementById("successful");
+let message=document.getElementById("message");
 
 const r1=document.getElementById("rParagraphs");
 const r2=document.getElementById("rWord");
@@ -225,6 +240,8 @@ const switchManager=document.getElementById("switch");
 
 const body=document.getElementById("body");
 
+const copyText=document.getElementById("copy");
+
 
 //funciones
 getResourcePage();
@@ -235,6 +252,7 @@ r2.addEventListener('change',getRadio);
 switchManager.addEventListener("change", getSwitch)
 formulario.addEventListener('submit',cargarFormulario);
 
+copyText.addEventListener('click',copyPortpaper);
 
 
 
