@@ -34,6 +34,15 @@ const validarActions=()=>{
 
 }
 
+const activateTimer=()=>{
+    
+    setTimeout(()=>{
+        console.log("Activando Timer");
+        successful.textContent="";
+    },2000);
+
+}
+
 
 const getResourcePage=()=>{
 //aqui los datos se actualizan por defecto cuando se recarga la pagina
@@ -42,6 +51,16 @@ else if(r2===true) r1.checked=false;
 
 words=Math.floor(Math.random() * (110 - 70 + 1)) + 70;
 txt.textContent="paragrhaps"
+
+
+    if(switchManager.checked){
+
+        body.classList.add("darkmode")
+        
+    }else{
+        body.classList.remove("darkmode")
+    }
+
 
 }
 
@@ -99,14 +118,15 @@ const cargarFormulario=(e)=>{
 
     console.log(parseInt(number.value));
     if((parseInt(number.value))){
-
-      if(txt.textContent==="words"){
         words=parseInt(number.value);
+      if(txt.textContent==="words"){
         if(words>100){
         paragrhaps=parseInt(parseInt(number.value))/100;
         words=parseInt(number.value)/paragrhaps;
+    }else paragrhaps=1;
+       
+
     
-    }
         
       }else{
         paragrhaps=parseInt(number.value);
@@ -129,7 +149,10 @@ const cargarFormulario=(e)=>{
 
         textArea.value=textoEditor;
 
+        resultados.textContent="words: "+(words*paragrhaps)+" paragrhaps: "+paragrhaps;
 
+        successful.textContent="successful";
+        activateTimer();
     
     }
     else{
@@ -166,6 +189,10 @@ const getSwitch=(e)=>{
 
 let words;
 let paragrhaps;
+
+let resultados=document.getElementById("resultados");
+let successful=document.getElementById("successful");
+
 const r1=document.getElementById("rParagraphs");
 const r2=document.getElementById("rWord");
 

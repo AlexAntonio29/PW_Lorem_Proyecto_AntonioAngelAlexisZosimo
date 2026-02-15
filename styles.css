@@ -123,7 +123,15 @@ p{
     
 }
 .subcontenedor .inputNumber{
+    outline: none;
+    color: white;
+    border-radius: 5px;
+    border: 1px solid #0000;
+    background: orange;
     width: 100px;
+}
+.subcontenedor .inputNumber:focus{
+    border-color: #ff000000;
 }
 
 .contenedor-options .subcontenedor{
@@ -149,7 +157,8 @@ p{
 .subcontenedor .bGenerar:hover{
 
     background: rgb(255, 135, 37);
-
+    border: 1px solid #ececec;
+    color: white;
     transform: translateY(-5px);
 
 }
@@ -287,7 +296,10 @@ input:checked + .slider:before {
 }
 
 .darkmode input[type="submit"]:hover{
-   background: rgb(3, 255, 3); 
+   background: rgb(33, 219, 33); 
+    background: rgba(1, 214, 97, 0.655);
+    color: rgb(119, 255, 0);
+   border: none;
 }
 
 .darkmode textarea{
@@ -302,6 +314,30 @@ input:checked + .slider:before {
     outline: none;
     border-color: #ebe6ff;    
     box-shadow: 0 0 8px rgba(0, 123, 255, 0.2); 
+}
+
+.darkmode .subcontenedor .inputNumber{
+    background:#cec7e7;
+    color: black
+
+}
+
+.darkmode .successful{
+
+    background: rgba(1, 214, 97, 0.655);
+    color: rgb(119, 255, 0);
+
+    
+}
+
+.successful{
+    margin: 1rem;
+    background: rgb(255, 146, 45);
+    color: rgb(255, 219, 111);
+    border-radius: 1rem;
+    align-content: center;
+    text-align: center;
+    
 }
 
 
